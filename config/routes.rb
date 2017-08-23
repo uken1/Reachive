@@ -12,11 +12,17 @@ get 'contacts/create'
   
 resources :poems, only: [:index, :show] 
 
-resources :blogs, only: [:index, :new, :create, :edit, :update ,:destroy] do
-    collection do
-      post :confirm
-    end
-  end  
+resources :blogs do
+  resources :comments
+  post :confirm, on: :collection
+end
+
+#resources :blogs, only: [:index, :new, :create, :edit, :update ,:destroy] do
+#    collection do
+#      post :confirm
+#    end
+#  end
+
 resources :contacts, only: [:new, :create] do
     collection do
       post :confirm
@@ -82,6 +88,5 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  
 
 end
