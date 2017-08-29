@@ -3,8 +3,8 @@ class BlogsController < ApplicationController
     before_action :set_blog, only: [:show, :edit, :update, :destroy]
   def index
     @blogs=Blog.all
-#    binding.pry
-#    raise
+    #binding.pry
+    #raise
     respond_to do |format|
      format.html
      format.js
@@ -55,6 +55,12 @@ class BlogsController < ApplicationController
       render 'new'
     end
   end
+  
+    # showアククションを定義します。入力フォームと一覧を表示するためインスタンスを2つ生成します。
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments
+  end
 
   private
     def blogs_params
@@ -66,10 +72,4 @@ class BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
     
-    # showアククションを定義します。入力フォームと一覧を表示するためインスタンスを2つ生成します。
-    def show
-    @comment = @blog.comments.build
-    @comments = @blog.comments
-    end
-  
 end

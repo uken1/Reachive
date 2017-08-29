@@ -8,6 +8,21 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to blog_path(@blog), notice: 'コメントを投稿しました。' }
+        # JS形式でレスポンスを返します。
+        format.js { render :index }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+  
+def destroy
+    @comment = Comment.find(params[:id])
+    @blog = @comment.blog
+    respond_to do |format|
+      if @comment.destroy
+        format.html { redirect_to blog_path(@blog), notice: 'コメントを削除しました。' }
+        format.js { render :index }
       else
         format.html { render :new }
       end
@@ -19,4 +34,5 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:blog_id, :content)
     end
+    
 end

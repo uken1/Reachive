@@ -68,8 +68,8 @@ config.action_mailer.default_url_options = { host: 'https://radiant-peak-72455.h
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
- user_name: ENV['SENDGRID_USERNAME'],
- password: ENV['SENDGRID_PASSWORD'],
+user_name: ENV['SENDGRID_USERNAME'],
+password: ENV['SENDGRID_PASSWORD'],
  domain: "heroku.com",
  address: "smtp.sendgrid.net",
  port: 587,
