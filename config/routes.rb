@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'relationships/destroy'
 
-resources :users, only: [:index]
+resources :users, only: [:index, :show]
 resources :relationships, only: [:create, :destroy]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

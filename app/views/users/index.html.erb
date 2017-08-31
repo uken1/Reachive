@@ -3,7 +3,9 @@
   <% @users.each do |user| %>
       <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
         <%= profile_img(user) %>
-        <%= user.email %>
+        <%= link_to user_path(user) do %>
+        <%= user.name %>
+        <% end %>
       </div>
       <%= render 'follow_form', user: user %>
   <% end %>
