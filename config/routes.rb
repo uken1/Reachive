@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get 'relationships/destroy'
 
-resources :users, only: [:index, :show]
 resources :relationships, only: [:create, :destroy]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -16,6 +15,8 @@ resources :relationships, only: [:create, :destroy]
   
 get 'contacts/create'
 #  get 'poem', url: '/poems/:id(.:format)', to: 'poems#show'
+
+resources :users, only: [:index, :show]
   
 resources :poems, only: [:index, :show] 
 

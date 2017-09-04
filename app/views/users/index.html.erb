@@ -4,7 +4,7 @@
       <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
         <%= profile_img(user) %>
         <%= link_to user_path(user) do %>
-        <%= user.name %>
+        <%= user.name %></p>
         <% end %>
       </div>
       <%= render 'follow_form', user: user %>

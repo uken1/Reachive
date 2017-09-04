@@ -1,5 +1,10 @@
 <div class="container">
-  <h2>ユーザ一詳細</h2>
+  <h2>ユーザ一詳細画面</h2>
+  <br>
+  <p class="left"><strong>名前:</strong></p>
+  <p class="left"><%= @users.name %></p>
+  <br>
+    <p class="left">---------------------------------- </p>
     <p class="left"><strong>■フォローしている人一覧</strong></p>
     <% @users.followed_users.each do |user| %>
       <div>
