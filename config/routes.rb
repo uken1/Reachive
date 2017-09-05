@@ -16,6 +16,10 @@ resources :relationships, only: [:create, :destroy]
 get 'contacts/create'
 #  get 'poem', url: '/poems/:id(.:format)', to: 'poems#show'
 
+resources :conversations do
+  resources :messages
+end
+
 resources :users, only: [:index, :show]
   
 resources :poems, only: [:index, :show] 
