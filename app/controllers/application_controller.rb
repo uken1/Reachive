@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
     # before_actionで下で定義したメソッドを実行
-  before_action :configure_permitted_parameters, if: :devise_controller?
+before_action :configure_permitted_parameters, if: :devise_controller?
+    #DIVE19-2で追加1/2
+before_action :current_notifications, if: :signed_in?
+  #DIVE19-2で追加1/2ここまで
 
   #変数PERMISSIBLE_ATTRIBUTESに配列[:name]を代入
  # PERMISSIBLE_ATTRIBUTES = %i(name)
@@ -17,4 +20,10 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: PERMISSIBLE_ATTRIBUTES)
       devise_parameter_sanitizer.permit(:account_update, keys: PERMISSIBLE_ATTRIBUTES)
     end
+    
+  #DIVE19-2で追加2/2
+    def current_notifications
+    @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
+    end
+  #DIVE19-2で追加2/2ここまで
 end

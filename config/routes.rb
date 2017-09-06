@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'relationships/create'
-
-  get 'relationships/destroy'
+  get 'notifications/index'
 
 resources :relationships, only: [:create, :destroy]
 
