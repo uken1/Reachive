@@ -75,3 +75,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'pusher'
+
+#DIVE20-1で設定
+gem 'fog'
