@@ -64,7 +64,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
   
-config.action_mailer.default_url_options = { host: 'https://radiant-peak-72455.herokuapp.com/' }
+config.action_mailer.default_url_options = { host: 'http://13.115.63.232/' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
