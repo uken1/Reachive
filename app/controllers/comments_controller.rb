@@ -39,7 +39,21 @@ def destroy
       end
     end
   end
+  
+    def edit
+    @comment = Comment.find(params[:id])
+  end
 
+  def update
+    @comment = Comment.find(params[:id])
+    @blog = @comment.blog
+      if @comment.update(comment_params)
+        redirect_to blog_path(@blog), notice: 'コメントを更新しました。'
+        else
+        render :new
+      end
+  end
+  
   private
     # ストロングパラメーター
     def comment_params
