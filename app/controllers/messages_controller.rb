@@ -25,11 +25,20 @@ class MessagesController < ApplicationController
 
   end
 
+#  def create
+#    @message = @conversation.messages.build(message_params)
+#    #binding.pry
+#    if @message.save
+#     redirect_to conversation_messages_path(@conversation)
+#    end
+#  end
+
   def create
     @message = @conversation.messages.build(message_params)
-    #binding.pry
     if @message.save
-     redirect_to conversation_messages_path(@conversation)
+      redirect_to conversation_messages_path(@conversation)
+    else
+      redirect_to conversation_messages_path(@conversation), notice:"メッセージを入力してください!"
     end
   end
 
